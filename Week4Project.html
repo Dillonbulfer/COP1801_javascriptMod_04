@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Week 4 Project</title>
+<script> 
+//prompting for user to input dollar amount for service.
+//----------------------------------------------------------------------
+
+var cost = prompt("Enter cost of service between $5.00 and $500.00: ");
+var total;
+var tippy;
+
+//function verify service amount is between 5 and 500.
+//----------------------------------------------------------------------
+
+function verify(cost){
+	
+	if (cost >=5.00 && cost <= 500.00){
+		alert("service amount is within range.");
+		check();
+	}
+	else{
+		alert("Service amount is not within range of 5.00-500.00: refresh and try again.");
+	}
+}
+verify(cost);
+
+//function to calculate tip amount and return value.
+//----------------------------------------------------------------------
+
+function calc(a, b){
+	
+	total = Number(a) + (Number(a) * Number(b));
+	tippy = Number(a) * Number(b);
+	
+	return total;
+}
+
+//function to check the tip.
+//----------------------------------------------------------------------
+
+function check(){
+	
+	let tip = prompt("Was the service 1.great, 2.Ok, or 3.Poor?(enter 1-3): ");
+	
+	if (tip == 1){
+		alert("You have selected Great service. Great service will add an 20% tip.");
+		
+		calc(cost, .20);
+		document.write("Thank you. Your service cost was: $" + cost + " " + "the recommended tip is: $" + tippy + " " + "The total with tip is: $" + total +"<br>"
+				+ "This is based on the quality of Great service you selected at 20%.");
+	}
+	else if (tip == 2){
+		alert("you have selected Ok service. Ok service will add an 15% tip.");
+		
+		calc(cost, .15);
+		document.write("Thank you. Your service cost was: $" + cost + " " + "the recommended tip is: $" + tippy + " " + "The total with tip is: $" + total +"<br>"
+				+ "This is based on the quality of OK service you selected at 15%.");
+	}
+	else if (tip == 3){
+		alert("you have selected Poor service. Poor service will add an 10% tip.");
+		
+		calc(cost, .1);
+		document.write("Thank you. Your service cost was: $" + cost + " " + "the recommended tip is: $" + tippy + " " + "The total with tip is: $" + total +"<br>"
+				+ "This is based on the quality of Poor service you selected at 10%.");
+	}
+	else{
+		alert("Invalid selection, Please refresh and try again.");
+	}
+	
+}
+</script>
+
+</head>
+<body>
+</body>
+</html>
